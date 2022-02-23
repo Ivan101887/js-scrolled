@@ -2,17 +2,12 @@ const elemMain = document.querySelector('#Main');
 const elemTitle = elemMain.querySelectorAll('.course__title');
 const elemDescWrap = elemMain.querySelectorAll('.course__descWrap');
 const elemImgContainer = elemMain.querySelectorAll('.course__imgContainer');
-const elemsCourse = elemMain.querySelectorAll('.course');
 const avalHeight = window.innerHeight;
 window.addEventListener('scroll', selection);
 
 function handleAnimation(e) {
-  const elemTitle = e.querySelectorAll('.course__title');
-  const elemDescWrap = e.querySelectorAll('.course__descWrap');
-  const elemImgContainer = e.querySelectorAll('.course__imgContainer');
-
-  let titlePosY = e.getBoundingClientRect().top;
-  if (titlePosY <= (avalHeight * 1 / 2)) {
+  let currentPosY = e.getBoundingClientRect().top;
+  if (currentPosY <= (avalHeight * 1 / 2)) {
     showCourse(e);
   } else {
     hideCourse(e);
@@ -22,7 +17,6 @@ function selection() {
   elemTitle.forEach(handleAnimation);
   elemImgContainer.forEach(handleAnimation);
   elemDescWrap.forEach(handleAnimation);
-  // elemCourse.forEach(handleAnimation);
 }
 
 function showCourse(item) {
