@@ -1,26 +1,21 @@
 const elemMain = document.querySelector('#Main');
-const elemTitle = elemMain.querySelectorAll('.course__title');
-const elemDescWrap = elemMain.querySelectorAll('.course__descWrap');
-const elemImgContainer = elemMain.querySelectorAll('.course__imgContainer');
 const avalHeight = window.innerHeight;
+const elemCourse = elemMain.querySelectorAll('.course');
 const arrAllY = [];
 const arrAllel = [];
 let index = 0;
+setArrs();
 window.addEventListener('scroll', handleAnimation);
-setArrs()
+
 function setArrs() {
-  elemTitle.forEach((e, i) => {
-    arrAllY.push(e.offsetTop);
-    arrAllel[i * 3] = elemTitle[i];
-  });
-  elemDescWrap.forEach((e, i) => {
-    arrAllY.push(e.offsetTop);
-    arrAllel[i * 3 + 1] = elemImgContainer[i];
-  });
-  elemImgContainer.forEach((e, i) => {
-    arrAllY.push(e.offsetTop);
-    arrAllel[i * 3 + 2] = elemDescWrap[i];
-  });
+  elemCourse.forEach((e, i) => {
+    arrAllY.push(e.querySelector('.course__title').offsetTop);
+    arrAllY.push(e.querySelector('.course__imgContainer').offsetTop);
+    arrAllY.push(e.querySelector('.course__descWrap').offsetTop);
+    arrAllel[i * 3] = e.querySelector('.course__title');
+    arrAllel[i * 3 + 1] = e.querySelector('.course__imgContainer');
+    arrAllel[i * 3 + 2] = e.querySelector('.course__descWrap');
+  })
   arrAllY.sort(function (a, b) { return a - b });
 }
 
