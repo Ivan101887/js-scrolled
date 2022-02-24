@@ -28,15 +28,7 @@ function handleAnimation(e) {
   if (arrAllY[index] - window.scrollY <= (avalHeight * 1 / 2)) {
     showCourse(arrAllel[index])
     index += 1;
-  } else {
-    hideCourse(arrAllel[index])
-  }
-}
-
-function selection() {
-  elemTitle.forEach(handleAnimation);
-  elemImgContainer.forEach(handleAnimation);
-  elemDescWrap.forEach(handleAnimation);
+  } 
 }
 
 function showCourse(item) {
@@ -48,20 +40,5 @@ function showCourse(item) {
     item.classList.add('js-fade-right');
   } else {
     item.classList.add('js-fade-left');
-  }
-}
-
-function hideCourse(item) {
-  if (item.classList.contains('js-fade-bottom')) {
-    item.classList.add('js-fade-out');
-    item.classList.remove('js-fade-bottom');
-  }
-  else if (item.classList.contains('js-fade-right')) {
-    item.classList.add('js-fade-out');
-    item.classList.remove('js-fade-right');
-  }
-  else if (item.classList.contains('js-fade-left')) {
-    item.classList.add('js-fade-out');
-    item.classList.remove('js-fade-left');
   }
 }
